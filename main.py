@@ -2,20 +2,23 @@
 from flask import Flask,render_template, request, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-import winsound
+import pygame , sys
 import time
 
 
 app=Flask(__name__)
 
+
 app.config['SECRET_KEY']= "NEW"
+
+
 
 class UserInput(FlaskForm):
     user_input=StringField("Enter Your Text: ", default="")
     morse_input=StringField("Morse Input", default="")
     submit=SubmitField("Submit")
 
-
+pygame.mixer.init()
 
 @app.route("/", methods=['POST', 'GET'])
 def home():
@@ -40,15 +43,17 @@ def home():
     def play_sound(user_input):
             for c in user_input:
                 if c==".":
-                    winsound.PlaySound('resourse/short.wav',0)
-                    time.sleep(0.001)
+                    pygame.mixer.music.load('resourse/short.wav')
+                    pygame.mixer.music.play()
+                    time.sleep(0.12)
 
                 elif c=="_" :
-                    winsound.PlaySound('resourse/long.wav',0)
-                    time.sleep(0.001)
+                    pygame.mixer.music.load('resourse/long.wav')
+                    pygame.mixer.music.play()
+                    time.sleep(0.12)
 
                 elif c==" " or "/" :
-                    time.sleep(0.005)
+                    time.sleep(0.2)
                 else:
                     return "There was an Error...Sorry try again please!" 
     play_sound(user_input)      

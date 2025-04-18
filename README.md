@@ -54,7 +54,7 @@ Use the command below to run the code:
 python main.py runserver
 ```
 
-# Opening the server
+### Opening the server
 
 To see the app go to any web browser on your computer and enter the domain
 
