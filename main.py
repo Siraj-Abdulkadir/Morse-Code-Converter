@@ -38,24 +38,25 @@ def home():
     output=user_input
 
     def play_sound(user_input):
-        for c in user_input:
-            if c==".":
-                playsound('resourse/short.wav')
-                time.sleep(0.001)
+            for c in user_input:
+                if c==".":
+                    playsound('resourse/short.wav')
+                    time.sleep(0.001)
 
-            elif c=="_" :
-                playsound('resourse/long.wav')
-                time.sleep(0.001)
+                elif c=="_" :
+                    playsound('resourse/long.wav')
+                    time.sleep(0.001)
 
-            elif c==" " or "/" :
-                time.sleep(0.01)
+                elif c==" " or "/" :
+                    time.sleep(0.01)
 
-            else:
-                return "There was an Error...Sorry try again please!" 
-    play_sound(user_input)            
-
-    
+                else:
+                    return "There was an Error...Sorry try again please!" 
+    play_sound(user_input)      
     return render_template("index.html", form=form,output=output)
+    
+    
+    
 
 
 
@@ -93,4 +94,4 @@ def morse():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")   
+    app.run(host="0.0.0.0",debug=True)   
