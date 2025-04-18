@@ -1,8 +1,8 @@
-from playsound import playsound
+
 from flask import Flask,render_template, request, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-
+import winsound
 import time
 
 
@@ -40,16 +40,15 @@ def home():
     def play_sound(user_input):
             for c in user_input:
                 if c==".":
-                    playsound('resourse/short.wav')
+                    winsound.PlaySound('resourse/short.wav',0)
                     time.sleep(0.001)
 
                 elif c=="_" :
-                    playsound('resourse/long.wav')
+                    winsound.PlaySound('resourse/long.wav',0)
                     time.sleep(0.001)
 
                 elif c==" " or "/" :
-                    time.sleep(0.01)
-
+                    time.sleep(0.005)
                 else:
                     return "There was an Error...Sorry try again please!" 
     play_sound(user_input)      
@@ -94,4 +93,4 @@ def morse():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",debug=True)   
+    app.run(host="0.0.0.0")   
