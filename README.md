@@ -58,4 +58,4 @@ python main.py runserver
 
 To see the app go to any web browser on your computer and enter the domain
 
-http://127.0.0.1:5000/
+http://localhost:5000/
