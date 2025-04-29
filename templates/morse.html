@@ -1,18 +1,7 @@
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" rel="stylesheet" />
-    <link href="../static/css/main.css" rel="stylesheet" />
-  <meta name="robots" content="noindex, follow">
-</head>
-  <body>
-    <div class="s013">
-      <form method="post">
-        <fieldset>
-          <legend>Morse Code Translator</legend><br><br>
+{%extends 'base.html'%}
+
+  {%block content%}
+         
           {%if text_output%}
           <div class="output">
           <legend style="margin: 0 0 4% 0;">
@@ -35,38 +24,5 @@
                 <!-- <label>WHERE</label> -->
                 <div class="input-select"><a href="{{url_for('home')}}" style="text-decoration: none;">Change To Morse</a>
                 </div>
-              </div>
-            </div>
-          </div>
-          <button class="btn-search" type="submit">Translate</button>
-        </div>
-        <footer>
-        <div class="output-1">
-          <h2><span>Made by:</span> Siraj Abdulkadir</h2>
-          <h2><span>ID:</span> UGR037/25</h2>
-          <h2><span>Submitted to:</span> Mr Anteneh Kassaye</h2>
-          <h2><span>Course code:</span> ITS154</h2>
-        </div>
-        </footer>
-      </form>
-    </div>
-    <script src="../static/js/extention/choices.js"></script>
-    <script>
-      const choices = new Choices('[data-trigger]',
-      {
-        searchEnabled: false,
-        itemSelectText: '',
-      });
+  {%endblock%}
 
-    </script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
-</body>
-</html>
